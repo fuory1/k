@@ -135,7 +135,6 @@ Fill in the required environment variables in `.env.local`:
 # Required for Core Functionality
 GOOGLE_GENERATIVE_AI_API_KEY=     # Get from https://makersuite.google.com/app/apikey
 GROQ_API_KEY=                     # Get from https://console.groq.com/keys
-GROQ_API_KEY=                     # Get from https://console.groq.com/keys
 TAVILY_API_KEY=                   # Get from https://app.tavily.com/home
 ```
 

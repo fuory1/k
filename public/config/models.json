@@ -26,7 +26,6 @@
       "toolCallType": "manual",
       "toolCallModel": "gemini-2.0-flash"
     },
-
     {
       "id": "deepseek-r1-distill-llama-70b",
       "name": "DeepSeek R1 Distill Llama 70B",
@@ -42,6 +41,54 @@
       "provider": "Groq",
       "providerId": "groq",
       "enabled": true,
+      "toolCallType": "native"
+    },
+    {
+      "id": "gpt-4.1",
+      "name": "GPT-4.1",
+      "provider": "OpenAI",
+      "providerId": "openai",
+      "enabled": false,
+      "toolCallType": "native"
+    },
+    {
+      "id": "gpt-4.1-mini",
+      "name": "GPT-4.1 mini",
+      "provider": "OpenAI",
+      "providerId": "openai",
+      "enabled": false,
+      "toolCallType": "native"
+    },
+    {
+      "id": "gpt-4o",
+      "name": "GPT-4o",
+      "provider": "OpenAI",
+      "providerId": "openai",
+      "enabled": false,
+      "toolCallType": "native"
+    },
+    {
+      "id": "gpt-4o-mini",
+      "name": "GPT-4o mini",
+      "provider": "OpenAI",
+      "providerId": "openai",
+      "enabled": false,
+      "toolCallType": "native"
+    },
+    {
+      "id": "claude-3-7-sonnet-20250219",
+      "name": "Claude 3.7 Sonnet",
+      "provider": "Anthropic",
+      "providerId": "anthropic",
+      "enabled": false,
+      "toolCallType": "native"
+    },
+    {
+      "id": "claude-3-5-sonnet-latest",
+      "name": "Claude 3.5 Sonnet",
+      "provider": "Anthropic",
+      "providerId": "anthropic",
+      "enabled": false,
       "toolCallType": "native"
     }
   ]
