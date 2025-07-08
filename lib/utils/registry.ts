@@ -96,9 +96,13 @@ export function isProviderEnabled(providerId: string): boolean {
     case 'anthropic':
       return !!process.env.ANTHROPIC_API_KEY
     case 'google':
-      return !!process.env.GOOGLE_GENERATIVE_AI_API_KEY
+      const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY
+      console.log('Google API Key check:', googleKey ? 'Present' : 'Missing')
+      return !!googleKey
     case 'groq':
-      return !!process.env.GROQ_API_KEY
+      const groqKey = process.env.GROQ_API_KEY
+      console.log('Groq API Key check:', groqKey ? 'Present' : 'Missing')
+      return !!groqKey
     case 'ollama':
       return !!process.env.OLLAMA_BASE_URL
     case 'azure':

@@ -17,6 +17,12 @@ const DEFAULT_MODEL: Model = {
 
 export async function POST(req: Request) {
   try {
+    // Debug environment variables
+    console.log('Environment check:')
+    console.log('GOOGLE_GENERATIVE_AI_API_KEY:', process.env.GOOGLE_GENERATIVE_AI_API_KEY ? 'Present' : 'Missing')
+    console.log('GROQ_API_KEY:', process.env.GROQ_API_KEY ? 'Present' : 'Missing')
+    console.log('TAVILY_API_KEY:', process.env.TAVILY_API_KEY ? 'Present' : 'Missing')
+    
     const { messages, id: chatId } = await req.json()
     const referer = req.headers.get('referer')
     const isSharePage = referer?.includes('/share/')
@@ -45,6 +51,7 @@ export async function POST(req: Request) {
       if (cookies.selectedModel) {
         try {
           selectedModel = JSON.parse(cookies.selectedModel) as Model
+          console.log('Selected model from cookie:', selectedModel)
         } catch (e) {
           console.error('Failed to parse selected model:', e)
         }
@@ -53,10 +60,14 @@ export async function POST(req: Request) {
       searchMode = cookies['search-mode'] === 'true'
     }
 
+    console.log('Final selected model:', selectedModel)
+    console.log('Provider enabled check:', isProviderEnabled(selectedModel.providerId))
+    
     if (
       !isProviderEnabled(selectedModel.providerId) ||
       selectedModel.enabled === false
     ) {
+      console.error(`Provider ${selectedModel.providerId} is not enabled or model is disabled`)
       return new Response(
         `Selected provider is not enabled ${selectedModel.providerId}`,
         {
